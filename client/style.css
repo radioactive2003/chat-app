@@ -1,0 +1,125 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+html,body{
+    font-family:'Courier New', Courier, monospace;
+}
+.nav{
+    display:flex;
+    justify-content:space-between;
+    padding:20px;
+    background-color: rgb(60, 140, 209);
+    width: 100%;
+    color:white;
+}
+.main{
+    
+    height:100vh;
+    width:100%;
+    
+  
+    
+}
+.hero{
+   
+    padding:5px;
+    width:100%;
+    height:400px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:20px;
+    align-items: center;    
+}
+.hero h1{
+    font-size: 40px;
+}
+.form{
+    font-size: 30px;    
+}
+.form label,input{
+    display: block;
+}
+.form input{
+    padding:5px;
+    margin-bottom:10px;
+    width:15rem;
+    outline: none;
+}
+.btn{
+    height:30px;
+    width:4rem;
+    border-radius: 10px;
+    border:none;
+    color:white;
+    font-size: 15px;
+    background-color:rgb(81, 179, 225) ;
+    cursor:pointer;
+}
+.disable{
+    display:none;
+}
+/* chat screen styles */
+.chat-screen{
+    background-color: rgb(242, 241, 239);
+    height:100vh;
+}
+.exit-btn{
+    width:50px;
+    height:30px;
+    border-radius: 10px;
+    border:none;
+    padding:5px;
+    font-size: larger;
+    background-color: black;
+    color:white;
+    cursor:pointer;
+
+}
+.chat-hero{
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    padding:10px;
+    
+}
+.update{
+    text-align: center;
+    
+}
+.you{
+    
+    text-align: right; 
+}
+.user2{
+    text-align:left;  
+}
+.bottom{
+    position:absolute;
+    bottom:0;
+    width: 100%;
+    display:flex;
+}
+.bottom input{
+    width:90%;
+    height:60px;
+    font-size: larger;
+    outline: none;
+}
+.bottom button{
+    width:10%;
+    font-size: 30px;
+    background-color: black;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+.title .time{
+    font-size:13px;    
+}
+.title .name{
+    font-size:20px; 
+    font-weight: bold;   
+}

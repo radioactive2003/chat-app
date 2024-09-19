@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat-app</title>
+    <link href="./style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js" 
+    integrity="sha512-11t8Q+vY9JlCrr+PveZKTYJq8n7O09Y5X/pk/aMd3vJugSvu4xOunGEUzaADqL3I8cZKE/pBwwCfXzDkRJh2sQ==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="main ">
+    <!-- this div for navigation bar -->
+    <div class="nav">
+        <h1>Chat-Mania</h1>
+        <h2 >Menu</h2>
+        
+        <!-- hero main for the main area -->
+    </div>
+   
+        <div class="hero  ">
+            <h1>join chatroom <span>+</span></h1>
+            <!-- <h1>create chatroom  <span>+</span></h1> -->
+            <div class="form">
+                <form id="form-id">
+                <label>username</label>
+                <input id="userinp"type="text" placeholder="enter  username" name="user" required>
+                <label>chatroom</label>
+                <input id="chatroom" type="text" placeholder="chatroom name" name="chatroom" required>
+                <button class="btn" type="submit" >Join</button>
+                </form>
+            </div>
+            <h2>available chatrooms :</h2>
+            <ul></ul>
+        </div>
+        </div>
+        <!-- chat-screen to appear -->
+        <div class="chat-screen  disable">
+            <div class="top nav">
+                <h1>Chat-Mania</h1> 
+                <button class="exit-btn" type="submit">Exit</button>
+            </div>
+            <div class="chat-hero">
+            <!-- <div class="update">
+            <p>you joined the conversation</p></div> -->
+            <!-- <div class="you">
+            <h4>you</h4> -->
+            <!-- <p> </p> -->
+            <!-- </div> -->
+            <!-- <div class="update">
+                <p>john joined the coversation</p>
+            </div>
+            <div class="user2">
+                
+                <h4>john</h4>
+                <p>hekkoo</p></div>
+                </div> -->
+            <div class="bottom">
+                <input type="text" name="msg">
+                <button type="submit">Send</button>
+            </div>
+
+        </div>
+        
+    
+<script src="./index.js"></script> 
+</body>
+
+</html>
