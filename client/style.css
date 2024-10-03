@@ -10,20 +10,19 @@ html,body{
     display:flex;
     justify-content:space-between;
     padding:20px;
-    background-color: rgb(60, 140, 209);
+    background-color: rgb(235, 200, 136);
     width: 100%;
     color:white;
 }
+.nav h1{
+   margin-left:20px;
+   font-size: 40px;
+}
 .main{
-    
     height:100vh;
-    width:100%;
-    
-  
-    
+    width:100%;   
 }
 .hero{
-   
     padding:5px;
     width:100%;
     height:400px;
@@ -46,16 +45,18 @@ html,body{
     padding:5px;
     margin-bottom:10px;
     width:15rem;
+    height:40px;
     outline: none;
+    border-radius: 10px;
 }
 .btn{
     height:30px;
-    width:4rem;
+    width:5em;
     border-radius: 10px;
     border:none;
     color:white;
-    font-size: 15px;
-    background-color:rgb(81, 179, 225) ;
+    font-size: 19px;
+    background-color: rgb(235, 200, 136) ;
     cursor:pointer;
 }
 .disable{
@@ -63,8 +64,15 @@ html,body{
 }
 /* chat screen styles */
 .chat-screen{
-    background-color: rgb(242, 241, 239);
+    background-color: rgb(145, 138, 122);
     height:100vh;
+    padding:0;
+    color:black;
+    
+}
+.top{
+    background-color: rgb(231, 221, 202);
+    color:black;
 }
 .exit-btn{
     width:50px;
@@ -82,16 +90,14 @@ html,body{
     display:flex;
     flex-direction: column;
     gap:10px;
-    padding:10px;
-    
+    padding:10px;   
 }
 .update{
-    text-align: center;
-    
+    text-align: center;   
 }
 .you{
-    
     text-align: right; 
+    color:white;
 }
 .user2{
     text-align:left;  
@@ -107,19 +113,25 @@ html,body{
     height:60px;
     font-size: larger;
     outline: none;
+    border-radius: 20px;
+    border:none;
+    background-color: rgb(231, 221, 202);
 }
-.bottom button{
-    width:10%;
+.bottom button {
     font-size: 30px;
-    background-color: black;
+   margin-left:8px;
+   padding-left:10px;
     color:white;
     border:none;
     cursor:pointer;
+    background: transparent;
+}
+.bottom button img{
+    margin-left:8px;
 }
 .title .time{
     font-size:13px;    
 }
 .title .name{
-    font-size:20px; 
-    font-weight: bold;   
+    font-size:20px;   
 }

@@ -1,23 +1,40 @@
-
 let username =document.querySelector(" #userinp");
 let chatroom =document.querySelector(" #chatroom");
 let joinBtn =document.querySelector(".btn");
 let main = document.querySelector(".main");
 let chat =document.querySelector(".chat-screen");
 let sendBtn = document.querySelector(".bottom button");
-let msgInp = document.querySelector(".bottom input");// input of sending msg
+let msgInp = document.querySelector(".bottom input");
 let exitBtn =document.querySelector(".exit-btn");
 let showChat =document.querySelector(".chat-hero");
 
-// const socket = new WebSocket('ws://localhost:8080');//initializing websocket object
+//initializing websocket object
 const socket = io('ws://localhost:8080');
 
  function sendMessage(e){
    e.preventDefault();
    if(msgInp.value!=""){
-      socket.emit('message',{//send the message to server
-         name:username.value,
-         text:msgInp.value});
+      socket.emit('message',//send the message to server
+        {name: username.value,
+         room:chatroom.value,
+        text: msgInp.value
+        }
+      )
+      //on message listens the server for messages 
+ socket.on("message",({name,text,time})=>{
+   
+   const el=document.createElement("div");
+   el.classList.add("you");
+   const title = document.createElement("div");
+   el.appendChild(title);
+   title.className="title";
+   const para = document.createElement("p");
+   el.appendChild(para);
+   title.innerHTML= `<span class="name">${name}</span> <span class="time">${time}</span>`;
+   para.textContent= text;
+   showChat.appendChild(el);
+ }
+ );
       msgInp.value = "";  
    }
    msgInp.focus();
@@ -31,54 +48,49 @@ const socket = io('ws://localhost:8080');
    socket.emit('activity',`${username.value} is typing...`);
  })
 
- //on message listens the server for messages
- socket.on("message",(data)=>{
-   
-   const el=document.createElement("div");
-   el.classList.add("you");
-   const title = document.createElement("div");
-   el.appendChild(title);
-   title.className="title";
-   const para = document.createElement("p");
-   el.appendChild(para);
-   title.innerHTML= `<span class="name">${data.name}</span> <span class="time">${data.time}</span>`;
-   para.textContent= data.text;
-  showChat.appendChild(el);
- }
- )
  
  //listens the server for activity message
  socket.on('activity',(name)=>{
-   const act= document.createElement("p");
+   const act = document.createElement("p");
    act.textContent=name;
    showChat.appendChild(act);
-   
    activeTimer = setTimeout(()=>{
       act.textContent="";
    },3000);
       
  })
-
-
+ socket.on('update-room',({room}) =>{
+    let roomList =document.createElement("li");
+    roomList.textContent=room;
+    document.querySelector(".roomList").appendChild(roomList);
+ })
+ socket.on('connected',({name})=>{
+    let msg = document.createElement("h3");
+    msg.textContent=`${name} is connected`;
+    showChat.appendChild(msg);
+    
+ })
 //when join btn is clicked for joining the chatroom
 joinBtn.addEventListener("click",(event)=>{
    event.preventDefault();
    if(username.value && chatroom.value){
-      socket.emit('enter room',{
-         name:username.value,
-         room:chatroom.value
-      })
+ 
+      socket.emit('enter-room',{
+      
+         room:chatroom.value,
+         name:username.value
+      }
+      )
     main.classList.add("disable");
     chat.classList.remove("disable");
-   }
-            
+   }          
 }
  );             
 //exit btn clicked
  exitBtn.addEventListener("click",()=>{
    chat.classList.add("disable");
    main.classList.remove("disable");
-   
+   document.location.reload();
 });
 
 
